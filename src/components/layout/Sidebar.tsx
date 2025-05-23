@@ -4,7 +4,8 @@ import {
   Users, 
   FileSpreadsheet, 
   Megaphone, 
-  Settings, 
+  Settings,
+  UserCircle,
   X,
   SparkleIcon
 } from 'lucide-react';
@@ -24,6 +25,7 @@ const Sidebar: React.FC<SidebarProps> = ({ sidebarOpen, setSidebarOpen }) => {
     { name: 'Templates', to: '/templates', icon: FileSpreadsheet },
     { name: 'Promotions', to: '/promotions', icon: Megaphone },
     { name: 'Settings', to: '/settings', icon: Settings },
+    { name: 'Profile', to: '/profile', icon: UserCircle },
   ];
   
   return (

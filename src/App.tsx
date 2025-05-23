@@ -8,6 +8,7 @@ import LoadingSpinner from './components/ui/LoadingSpinner';
 // Lazy load pages for better performance
 const Dashboard = lazy(() => import('./pages/Dashboard'));
 const Partners = lazy(() => import('./pages/Partners'));
+const CreatePartner = lazy(() => import('./pages/CreatePartner'));
 const PartnerDetail = lazy(() => import('./pages/PartnerDetail'));
 const Templates = lazy(() => import('./pages/Templates'));
 const TemplateBuilder = lazy(() => import('./pages/TemplateBuilder'));
@@ -15,6 +16,8 @@ const TemplateEditor = lazy(() => import('./pages/TemplateEditor'));
 const Promotions = lazy(() => import('./pages/Promotions'));
 const PromotionDetail = lazy(() => import('./pages/PromotionDetail'));
 const PromotionCreator = lazy(() => import('./pages/PromotionCreator'));
+const Settings = lazy(() => import('./pages/Settings'));
+const Profile = lazy(() => import('./pages/Profile'));
 const Login = lazy(() => import('./pages/Login'));
 const Register = lazy(() => import('./pages/Register'));
 const NotFound = lazy(() => import('./pages/NotFound'));
@@ -26,7 +29,7 @@ function App() {
         <Suspense fallback={<div className="flex items-center justify-center h-screen"><LoadingSpinner size="lg" /></div>}>
           <Routes>
             <Route path="/login" element={<Login />} />
-            <Route path="/register" element={<Register />} /> {/* Add the new register route */}
+            <Route path="/register" element={<Register />} />
 
             <Route path="/" element={
               <ProtectedRoute>
@@ -37,6 +40,7 @@ function App() {
 
               <Route path="partners">
                 <Route index element={<Partners />} />
+                <Route path="create" element={<CreatePartner />} />
                 <Route path=":id" element={<PartnerDetail />} />
               </Route>
 
@@ -47,10 +51,13 @@ function App() {
               </Route>
 
               <Route path="promotions">
-                <Route index element={<Promotions />} />/
+                <Route index element={<Promotions />} />
                 <Route path="create" element={<PromotionCreator />} />
                 <Route path=":id" element={<PromotionDetail />} />
               </Route>
+
+              <Route path="settings" element={<Settings />} />
+              <Route path="profile" element={<Profile />} />
             </Route>
 
             <Route path="*" element={<NotFound />} />
